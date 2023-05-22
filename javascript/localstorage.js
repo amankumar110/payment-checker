@@ -22,7 +22,7 @@ function makeUserPremium(object){
                 localObj.premium.isDiamond = true;
             }
         } else{
-            alert("invalid inormation")
+            alert("invalid information")
         }
     localStorage.setItem("accountInfos",JSON.stringify(localObj));
     };
