@@ -1,3 +1,5 @@
-body{
-    background-color: rgb(206, 224, 240);
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+body {
+  background-color: rgb(206, 224, 240);
+  font-family: "Inter", sans-serif !important;
 }

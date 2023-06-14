@@ -3,8 +3,9 @@ const silverBtn = document.getElementById("silverbtn");
 const goldenBtn = document.getElementById("goldenbtn");
 const diamondBtn = document.getElementById("diamondbtn");
 const container = document.getElementById("subscriptions");
-const signUpLink = document.getElementById("signuplink")
-window.addEventListener("DOMContentLoaded", () => {
+const signUpLink = document.getElementById("signuplink");
+window.addEventListener("DOMContentLoaded", checkUserPremiumStatus);
+function checkUserPremiumStatus() {
   if (localStorage.getItem("accountInfos") != null) {
     signUpLink.classList.add("disabled");
     signUpLink.classList.remove("active");
@@ -31,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
       diamondBtn.textContent = "already bought";
     }
   }
-});
+}
 
 function buttonEventHandeling(button) {
   button.addEventListener("click", () => {
@@ -39,7 +40,7 @@ function buttonEventHandeling(button) {
     infoForm.innerHTML = `
     
         
-        <h3 class="text-center">Fill if you are signed up</h3>
+        <h3 class="text-center mt-3">Only Signed Up User Is Allowed To Fill THis</h3>
         <div class="mb-3">
           <label for="#firstname" class="form-label text-center d-lg-inline fs-5 d-block">First name</label>
           <input type="text" id="firstname" name="firstname" placeholder="First name" class="form-control">
@@ -98,7 +99,7 @@ if (localStorage.getItem("accountInfos") === null) {
     container.classList.add(style);
   }
   container.innerHTML = `
-     <h1 class="d-inline">First you sign up</h1>
+     <h1 class="d-inline">Sign Up First <a href="./signup.html">SignUp page</a></h1>
     `;
   setTimeout(() => {
     history.go(-1);

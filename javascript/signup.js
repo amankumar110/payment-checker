@@ -14,37 +14,39 @@ form.addEventListener("submit", (e) => {
     password.trim() === ""
   ) {
     alert("complete the form ");
-  }
-  for (const option of ageOptions) {
-    if (option.checked) {
-      const value = option.value;
-      if (value.toLowerCase() === "yes") {
-        isAdult = true;
+  } else {
+    for (const option of ageOptions) {
+      if (option.checked) {
+        const value = option.value;
+        if (value.toLowerCase() === "yes") {
+          isAdult = true;
+        }
       }
     }
-  }
-  let optionsLeft = 2;
-  ageOptions.forEach((option) => {
-    if (!option.checked) {
-      optionsLeft--;
-    }
-    if (optionsLeft === 0) {
-      alert("complete the  form");
-    }
-  });
+    let optionsLeft = 2;
+    ageOptions.forEach((option) => {
+      if (!option.checked) {
+        optionsLeft--;
+      }
+      if (optionsLeft === 0) {
+        alert("complete the  form");
+      }
+    });
 
-  saveInLocal({
-    firstname: firstName,
-    surname: surName,
-    fullName: fullName,
-    password: password,
-    isAdult: isAdult,
-    premium: {
-      paid: false,
-      isSilver: false,
-      isGolden: false,
-      isDiamond: false,
-    },
-  });
+    saveInLocal({
+      firstname: firstName,
+      surname: surName,
+      fullName: fullName,
+      password: password,
+      isAdult: isAdult,
+      premium: {
+        paid: false,
+        isSilver: false,
+        isGolden: false,
+        isDiamond: false,
+      },
+    });
+  }
   alert(`${fullName} has signed up`);
+  location.assign("../index.html");
 });
